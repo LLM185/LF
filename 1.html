@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url("1/41.png"); /* 设置背景图片 */
+            background-size: cover; /* 背景图片填充整个屏幕 */
+            background-position: center;
+            overflow: hidden;
+        }
+
+        /* 音乐播放器 */
+        audio {
+            position: absolute;
+            top: -9999px; /* 隐藏音乐播放器 */
+        }
+
+        .shell {
+            position: relative;
+            width: 60vw;
+            height: 40vw;
+            max-width: 380px;
+            max-height: 250px;
+            margin: 0;
+            color: white;
+            perspective: 1000px;
+            transform-origin: center;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: translateZ(-30vw) rotateY(0);
+            animation: carousel 16s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        }
+
+        .item {
+            position: absolute;
+            width: 60vw;
+            height: 40vw;
+            max-width: 380px;
+            max-height: 250px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            background-size: cover;
+            -webkit-box-reflect: below 25px -webkit-linear-gradient(transparent 50%, rgba(255, 255, 255, 0.3));
+        }
+
+        .item:nth-child(1) {
+            background-image: url("1/1.jpg");
+            transform: rotateY(0) translateZ(35vw);
+        }
+
+        .item:nth-child(2) {
+            background-image: url("1/2.jpg");
+            transform: rotateY(45deg) translateZ(35vw);
+        }
+
+        .item:nth-child(3) {
+            background-image: url("1/3.jpg");
+            transform: rotateY(90deg) translateZ(35vw);
+        }
+
+        .item:nth-child(4) {
+            background-image: url("1/4.jpg");
+            transform: rotateY(135deg) translateZ(35vw);
+        }
+
+        .item:nth-child(5) {
+            background-image: url("1/5.jpg");
+            transform: rotateY(180deg) translateZ(35vw);
+        }
+
+        .item:nth-child(6) {
+            background-image: url("1/6.jpg");
+            transform: rotateY(225deg) translateZ(35vw);
+        }
+
+        .item:nth-child(7) {
+            background-image: url("1/7.jpg");
+            transform: rotateY(270deg) translateZ(35vw);
+        }
+
+        .item:nth-child(8) {
+            background-image: url("1/8.jpeg");
+            transform: rotateY(315deg) translateZ(35vw);
+        }
+
+        /* 改进的动画，最后一帧改成逆时针 */
+        @keyframes carousel {
+            0%, 12.5% {
+                transform: translateZ(-35vw) rotateY(0deg); /* 第1次旋转 */
+            }
+            12.5%, 25% {
+                transform: translateZ(-35vw) rotateY(45deg); /* 第2次旋转 */
+            }
+            25%, 37.5% {
+                transform: translateZ(-35vw) rotateY(90deg); /* 第3次旋转 */
+            }
+            37.5%, 50% {
+                transform: translateZ(-35vw) rotateY(135deg); /* 第4次旋转 */
+            }
+            50%, 62.5% {
+                transform: translateZ(-35vw) rotateY(180deg); /* 第5次旋转 */
+            }
+            62.5%, 75% {
+                transform: translateZ(-35vw) rotateY(225deg); /* 第6次旋转 */
+            }
+            75%, 87.5% {
+                transform: translateZ(-35vw) rotateY(270deg); /* 第7次旋转 */
+            }
+            87.5%, 100% {
+                transform: translateZ(-35vw) rotateY(315deg); /* 第8次旋转 */
+            }
+            100% {
+                transform: translateZ(-35vw) rotateY(360deg); /* 最后一帧旋转回去，逆时针 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 音乐播放器 -->
+    <audio autoplay loop>
+        <source src="3.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="shell">
+        <div class="content">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+</body>
+</html>
