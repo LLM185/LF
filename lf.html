@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* CSS 样式 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* 视频背景 */
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        /* 页面容器，左右分割 */
+        .video-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 登录框外部 */
+        .container {
+            display: flex;
+            width: 48%;
+            height: 400px;
+            background: rgba(33, 20, 124, 0.388);
+            border-radius: 10px;
+        }
+
+        /* 左侧区域，包含图片 */
+        .left {
+            width: 50%;
+            height: 100%;
+            background-image: url('0.jpg');
+            background-size: contain; /* 等比例缩放，确保图片完全显示 */
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 10px 0 0 10px;
+            opacity: 0.67; /* 透明度设置 */
+        }
+
+        /* 右侧区域，登录框 */
+        .right {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* 登录框内容 */
+        .right h2 {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .right input {
+            width: 90%;
+            height: 40px;
+            margin: 10px 0;
+            padding: 0 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .right button {
+            width: 95%;
+            height: 50px;
+            margin-top: 20px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .right button:hover {
+            background: #0056b3;
+        }
+
+        .container .fn {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            width: 60%;
+        }
+
+        .container .fn a {
+            font-size: 1.3rem;
+            margin-top: 5rem;
+            padding: 1rem 2rem;
+            color: #666;
+        }
+
+        .container .fn a:hover {
+            color: rgb(144,129,241);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="video-container">
+        <!-- 视频背景 -->
+        <video autoplay loop muted>
+            <source src="105958dwpzjd_preview.mp4" type="video/mp4">
+            您的浏览器不支持视频。
+        </video>
+
+        <!-- 背景音乐 -->
+        <audio id="background-music" autoplay loop>
+            <source src="4.mp3" type="audio/mp3">
+            您的浏览器不支持音频播放。
+        </audio>
+
+        <!-- 登录框内容 -->
+        <div class="container">
+            <!-- 左侧图片部分 -->
+            <div class="left"></div>
+
+            <!-- 右侧登录部分 -->
+            <div class="right">
+                <h2>登录</h2>
+                <form action="">
+                    <input type="text" id="username" placeholder="请输入账号" />
+                    <input type="password" id="password" placeholder="请输入密码" />
+                    <button type="button" onclick="login()">登录</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // 用户名和密码的验证
+            if (username === 'lf' && password === 'lf0213') {
+                // 登录成功后跳转到成功页面
+                window.location.href = "success.html";
+            } else {
+                // 如果用户名或密码错误，弹出警告框
+                alert('账号或密码错误！');
+            }
+        }
+    </script>
+</body>
+
+</html>
